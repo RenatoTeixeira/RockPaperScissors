@@ -7,26 +7,62 @@
 </head>
 <body>
     <script>
-        let value = getComputerChoice(3);
-        let computerChoice;
-        function getComputerChoice(value) {
-            return Math.floor(Math.random() * value);
-        }
-        switch(value) {
-        case 0:
-            computerChoice = "Rock";
-            break;
-        
-        case 1:
-            computerChoice = "Paper";
-            break;
-        
-        case 2:
-            computerChoice = "Scissors";
-            break;
+        let humanChoice;
+        let resultMessage;
+        let choices = ["rock", "paper", "scissors"];
+        let computerChoice = choices[Math.floor(Math.random() * choices.length)];
+
+        function getHumanChoice() {
+           return prompt("Enter Rock, Paper or Scissors", "");
         }
         
-        console.log(computerChoice);
+        function playGame() {
+            let humanScore = 0;
+            let computerScore = 0;
+            while (humanScore < 3 && computerScore < 3) {
+                humanChoice = getHumanChoice();
+                humanChoice = humanChoice.toLowerCase();
+                computerChoice = choices[Math.floor(Math.random() * choices.length)];
+                playRound(humanChoice, computerChoice);
+            }
+            function playRound(a, b) {
+                if (a === b) {
+                    resultMessage = "It's a draw!!";
+                } else if(a === "rock" && b === "scissors") {
+                    resultMessage = "It's a Win!! Rock beats Scissors";
+                    humanScore++;
+                } else if(a === "rock" && b === "paper") {
+                    resultMessage = "It's a Loss!! Paper beats Rock";
+                    computerScore++;
+                } else if(a === "paper" && b === "scissors") {
+                    resultMessage = "It's a Loss!! Scissors beats Paper";
+                    computerScore++;
+                } else if(a === "paper" && b === "rock") {
+                    resultMessage = "It's a Win!! Paper beats Rock";
+                    humanScore++;
+                } else if(a === "scissors" && b === "paper") {
+                    resultMessage = "It's a Win!! Scissors beats Paper";
+                    humanScore++;
+                } else if(a === "scissors" && b === "rock") {
+                    resultMessage = "It's a Loss!! Rock beats Scissors";
+                    computerScore++;
+                } else {
+                    resultMessage = "Invalid Input!!";
+                }
+                console.log(humanChoice);
+                console.log(computerChoice);
+                console.log(resultMessage);
+                console.log(humanScore);
+                console.log(computerScore);
+            }
+            if (humanScore == 3) {
+            console.log("You won");
+            } else {
+                console.log("Computer won.");
+            }
+        }
+    playGame();
+
     </script>
 </body>
 </html>
