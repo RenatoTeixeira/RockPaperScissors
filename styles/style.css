@@ -1,0 +1,39 @@
+body {
+  background-color: #f29f05;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  color: #d9042b;
+  font-size: 40px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  gap: 20px;
+}
+
+button {
+  background-color: #03658c;
+  color: white;
+  padding: 15px 20px;
+  font-size: 15px;
+  font-weight: bolder;
+  border: solid #f27b50 2px;
+  border-radius: 20%;
+}
+
+button:hover {
+  background-color: #04789b;
+  color: #f27b50;
+}
+
+#results {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
